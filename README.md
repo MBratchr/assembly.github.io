@@ -3,7 +3,7 @@
 
 **Team Members**  
 Maria Linkins-Nielsen (mlinkinsniel2022@my.fit.edu)      
-Michael Bratcher (mbratcher2021@fit.edu)
+Michael Bratcher (mbratcher2021@my.fit.edu)
 
 **Faculty Advisor**  
 Dr. Silaghi (msilaghi@fit.edu)
