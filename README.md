@@ -2,7 +2,7 @@
 # Assembly/C Snippet Inspector
 
 **Team Members**  
-Maria Linkins-Nielson (mlinkinsniel2022@my.fit.edu)      
+Maria Linkins-Nielsen (mlinkinsniel2022@my.fit.edu)      
 Michael Bratcher (mbratcher2021@fit.edu)
 
 **Faculty Advisor**  
