@@ -14,7 +14,7 @@ Dr. Silaghi (msilaghi@fit.edu)
 | Date | Deliverables |
 |---|---|
 | Sep 3 — Plan | [Plan](plan1.pdf) · [Presentation](Presentation.pdf) |
-| Sep 29 — Milestone 1 | [Requirement](Requirements-1.pdf) · [Design](design.pdf) · [Test](#) · [Presentation](#) · [Progress Evaluation](#) |
+| Sep 29 — Milestone 1 | [Requirement](Requirements-1.pdf) · [Design](design.pdf) · [Test](TestDocument.pdf) · [Presentation](Milestone1.pptx) · [Progress Evaluation](ProgressEval.pdf) |
 | Oct 27 — Milestone 2 | [Presentation](#) · [Progress Evaluation](#) |
 | Nov 24 — Milestone 3 | [Presentation](#) · [Progress Evaluation](#) |
 
