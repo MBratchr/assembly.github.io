@@ -25,7 +25,7 @@ Dr. Silaghi (msilaghi@fit.edu)
 | Date | Deliverables |
 |---|---|
 | Jan 26 - Updated Plan | [Plan](Semester2PlanSLAIT.pdf) · [Presentation](https://docs.google.com/presentation/d/1YbqZJCG1NQKIy1O7XOGC57m54lzUvmt777slo4_b7xA/edit?usp=sharing) |
-| Feb 23 - Milestone 4 | [Plan]() · [Presentation]() |
+| Feb 23 - Milestone 4 | [Plan](Milestone4.pdf) · [Presentation](https://docs.google.com/presentation/d/1Qkc05L5YtfVcdvnqeTB78cgZ_W754crNa3-LzHW1rw8/edit?usp=sharing) |
 | Milestone 5 TBD |
 | Milestone 6 TBD |
 
