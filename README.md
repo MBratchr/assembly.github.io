@@ -13,10 +13,10 @@ Dr. Silaghi (msilaghi@fit.edu)
 
 | Date | Deliverables |
 |---|---|
-| Sep 3 — Plan | [Plan](plan1.pdf) · [Presentation](Presentation.pdf) |
-| Sep 29 — Milestone 1 | [Requirement](Requirements-1.pdf) · [Design](design.pdf) · [Test](TestDocument.pdf) · [Presentation](https://docs.google.com/presentation/d/1-lAFR9dajT-A8YZx_R3JqIqmrMrKk1XinZyZ9G2rlf0/edit?usp=sharing) · [Progress Evaluation](ProgressEval.pdf) |
-| Oct 27 — Milestone 2 | [Presentation](https://docs.google.com/presentation/d/1gPrCjMiBOyKPmZ-8paMNhN74J3hhJZSr6iO2Im-3424/edit?usp=sharing) · [Progress Evaluation](ProgressEval2.pdf) |
-| Nov 24 — Milestone 3 | [Presentation](https://docs.google.com/presentation/d/1iM_qG6er4Z5DetsAM6fCWTIpI4cPwN6nmwdJ3qLBqLA/edit?usp=sharing) · [Progress Evaluation](ProgressEval3.pdf) |
+| Sep 3 - Plan | [Plan](plan1.pdf) · [Presentation](Presentation.pdf) |
+| Sep 29 - Milestone 1 | [Requirement](Requirements-1.pdf) · [Design](design.pdf) · [Test](TestDocument.pdf) · [Presentation](https://docs.google.com/presentation/d/1-lAFR9dajT-A8YZx_R3JqIqmrMrKk1XinZyZ9G2rlf0/edit?usp=sharing) · [Progress Evaluation](ProgressEval.pdf) |
+| Oct 27 - Milestone 2 | [Presentation](https://docs.google.com/presentation/d/1gPrCjMiBOyKPmZ-8paMNhN74J3hhJZSr6iO2Im-3424/edit?usp=sharing) · [Progress Evaluation](ProgressEval2.pdf) |
+| Nov 24 - Milestone 3 | [Presentation](https://docs.google.com/presentation/d/1iM_qG6er4Z5DetsAM6fCWTIpI4cPwN6nmwdJ3qLBqLA/edit?usp=sharing) · [Progress Evaluation](ProgressEval3.pdf) |
 
 ---
 ---
@@ -26,7 +26,7 @@ Dr. Silaghi (msilaghi@fit.edu)
 |---|---|
 | Jan 26 - Updated Plan | [Plan](Semester2PlanSLAIT.pdf) · [Presentation](https://docs.google.com/presentation/d/1YbqZJCG1NQKIy1O7XOGC57m54lzUvmt777slo4_b7xA/edit?usp=sharing) |
 | Feb 23 - Milestone 4 | [Plan](Milestone4.pdf) · [Presentation](https://docs.google.com/presentation/d/1Qkc05L5YtfVcdvnqeTB78cgZ_W754crNa3-LzHW1rw8/edit?usp=sharing) |
-| Milestone 5 TBD |
+| Mar 30 - Milestone 5 |[Plan](-) · [Presentation](https://docs.google.com/presentation/d/1oNA80u_v4HqMqde8-QEbhKX-9RteLzxQ/edit?usp=sharing&ouid=105672876847746796990&rtpof=true&sd=true)
 | Milestone 6 TBD |
 
 ---
