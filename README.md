@@ -27,6 +27,6 @@ Dr. Silaghi (msilaghi@fit.edu)
 | Jan 26 - Updated Plan | [Plan](Semester2PlanSLAIT.pdf) · [Presentation](https://docs.google.com/presentation/d/1YbqZJCG1NQKIy1O7XOGC57m54lzUvmt777slo4_b7xA/edit?usp=sharing) |
 | Feb 23 - Milestone 4 | [Plan](Milestone4.pdf) · [Presentation](https://docs.google.com/presentation/d/1Qkc05L5YtfVcdvnqeTB78cgZ_W754crNa3-LzHW1rw8/edit?usp=sharing) |
 | Mar 30 - Milestone 5 |[Plan](ProgressEval5.pdf) · [Presentation](https://docs.google.com/presentation/d/198QgYOIw-wn9RyqdzF0Yay6bqM4hVONl4Yk5Yd7GYTI/edit?usp=sharing) · [Poster](https://docs.google.com/presentation/d/1oNA80u_v4HqMqde8-QEbhKX-9RteLzxQ/edit?usp=sharing)
-| Apr 20 - Milestone 6 TBD | [Plan](Milestone6.pdf) · [Presentation](https://docs.google.com/presentation/d/1YAHNOCZGRRqdPcO57citzQjjFVzQ6-FRzTcbHUOm_lU/edit?usp=sharing)
+| Apr 20 - Milestone 6 | [Plan](Milestone6.pdf) · [Presentation](https://docs.google.com/presentation/d/1YAHNOCZGRRqdPcO57citzQjjFVzQ6-FRzTcbHUOm_lU/edit?usp=sharing)
 
 ---
