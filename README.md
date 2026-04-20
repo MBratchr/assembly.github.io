@@ -8,6 +8,9 @@ Michael Bratcher (mbratcher2021@my.fit.edu)
 **Faculty Advisor**  
 Dr. Silaghi (msilaghi@fit.edu)
 
+**Found a bug?**
+Report it [here](https://forms.gle/LeDUuTAFuQvhgSteA).
+
 ---
 ## First Semester
 
