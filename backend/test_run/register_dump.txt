@@ -1,0 +1,18 @@
+Breakpoint 1 at 0x401005: file /work/program.asm, line 9.
+Breakpoint 2 at 0x40100a: file /work/program.asm, line 10.
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, 0x0000000000401005 in _start ()
+
+=== Breakpoint at line 9 ===
+rax: 0x0000000000000001
+rbx: 0x0000000000000000
+rflags: 0x0000000000000202
+
+Breakpoint 2, 0x000000000040100a in _start ()
+
+=== Breakpoint at line 10 ===
+rax: 0x0000000000000001
+rbx: 0x0000000000000000
+rflags: 0x0000000000000202
+[Inferior 1 (process 36) exited normally]

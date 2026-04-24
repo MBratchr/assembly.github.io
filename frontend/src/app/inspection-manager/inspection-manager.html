@@ -1,0 +1,113 @@
+<!--
+  Component: Inspection Manager
+
+  Description:
+  This component provides an interface for managing inspections associated with a file.
+  It allows users to add, edit, and delete inspections, as well as lock completed inspections.
+  Each inspection includes line numbers, registers, and flags.
+
+  Features:
+  - Displays the current file name and total lines in the file.
+  - Allows adding new inspections with a button.
+  - Provides input fields for specifying line numbers, selecting registers, and flags for each inspection.
+  - Supports locking inspections when completed and deleting inspections.
+  - Displays a summary of locked inspections, including line numbers, selected registers, and flags.
+  - Includes an export button to upload or test inspections.
+
+  Conditional Rendering:
+  - If no file is loaded, displays a message and disables the "Add Inspection" button.
+  - If a file is loaded, displays the inspection management interface.
+
+  Key Elements:
+  - `addInspection()`: Adds a new inspection.
+  - `updateLine(i, value)`: Updates the line number for a specific inspection.
+  - `lockInspection(i)`: Locks a specific inspection.
+  - `deleteInspection(i)`: Deletes a specific inspection.
+  - `exportInspections()`: Exports the inspections for testing or uploading.
+  - `hasAnyRegisters(ins)`: Checks if any registers are selected for an inspection.
+  - `hasAnyFlags(ins)`: Checks if any flags are selected for an inspection.
+  - `selectedRegistersText(ins)`: Returns a string of selected registers for an inspection.
+  - `selectedFlagsText(ins)`: Returns a string of selected flags for an inspection.
+
+  Notes:
+  - The component uses Angular directives such as `*ngIf` and `*ngFor` for conditional rendering and iteration.
+  - The `[(ngModel)]` directive is used for two-way data binding with input elements.
+  - The `track` keyword is used for efficient rendering of lists.
+-->
+<div class="inspection-manager">
+  @if (currentFileName) {
+    <h3>Inspections for {{ currentFileName }}</h3>
+    <p>Total lines: {{ fileState.lines().length }}</p>
+
+    <button class="add-btn" (click)="addInspection()">Add Inspection +</button>
+
+    <div class="inspections">
+      @for (ins of inspections; track $index; let i = $index) {
+        <div class="inspection">
+          @if (!ins.locked) {
+            <div class="left">
+              <input
+                class="line-input"
+                type="number"
+                placeholder="Line #"
+                min="1"
+                [max]="fileState.lines().length"
+                (input)="updateLine(i, $any($event.target).value)"
+              />
+
+              <div class="section">
+                <h4>Registers</h4>
+                <div class="checkbox-grid">
+                  @for (r of registerOptions; track r) {
+                    <label><input type="checkbox" [(ngModel)]="ins.registers[r]" /> {{ r }}</label>
+                  }
+                </div>
+              </div>
+
+              <div class="section">
+                <h4>Flags</h4>
+                <div class="checkbox-grid">
+                  @for (f of flagOptions; track f) {
+                    <label><input type="checkbox" [(ngModel)]="ins.flags[f]" /> {{ f }}</label>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div class="right">
+              <button class="done-btn" [disabled]="!canLock(i)" (click)="lockInspection(i)">Done</button>
+              <button class="delete-btn" (click)="deleteInspection(i)">X</button>
+            </div>
+          }
+          @else {
+            <div class="summary">
+              <div>
+                <strong>Line {{ ins.line }}</strong><br />
+                @if (hasAnyRegisters(ins)) {
+                  <span>Registers: {{ selectedRegistersText(ins) }}</span><br />
+                }
+                @if (hasAnyFlags(ins)) {
+                  <span>Flags: {{ selectedFlagsText(ins) }}</span>
+                }
+              </div>
+              <div class="summary-actions">
+                <button class="edit-btn" (click)="editInspection(i)">Edit</button>
+                <button class="dup-btn" (click)="duplicateInspection(i)">Duplicate</button>
+                <button class="delete-btn" (click)="deleteInspection(i)">X</button>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <button class="test-btn" (click)="exportInspections()" [disabled]="isUploading">
+      @if (isUploading) { Uploading… } @else { Test }
+    </button>
+
+  }
+  @else {
+    <h3>No file loaded</h3>
+    <button class="add-btn" disabled>Add Inspection +</button>
+  }
+</div>

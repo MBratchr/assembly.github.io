@@ -1,0 +1,19 @@
+/* Global reset-ish things that Angular doesn't give by default */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove browser default margin that caused the weird outer border */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic typography baseline; .page handles actual theme colors */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}

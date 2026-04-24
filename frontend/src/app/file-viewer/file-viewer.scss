@@ -1,0 +1,411 @@
+.file-viewer-container {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  padding: 1rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ---------------------------- */
+/* BUTTONS IN FILE VIEWER       */
+/* ---------------------------- */
+
+/* Base style: pastel purple squircles */
+.file-viewer-container .file-btn,
+.file-viewer-container .manual-btn,
+.file-viewer-container .snippet-btn,
+.file-viewer-container .done-btn {
+  border-radius: 999px;
+  padding: 0.55rem 1.15rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  background: var(--btn-pastel);
+  border: 1px solid var(--btn-pastel);
+  color: var(--text);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease,
+    border-color 150ms ease,
+    transform 100ms ease;
+}
+
+/* Hover: royal purple (or darker in dark mode) */
+.file-viewer-container .file-btn:hover,
+.file-viewer-container .manual-btn:hover,
+.file-viewer-container .snippet-btn:hover,
+.file-viewer-container .done-btn:hover {
+  background: var(--btn-hover);
+  border-color: var(--btn-hover);
+  color: var(--btn-text-active);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Pressed: purple gradient (darkened in dark mode) */
+.file-viewer-container .file-btn:active,
+.file-viewer-container .manual-btn:active,
+.file-viewer-container .snippet-btn:active,
+.file-viewer-container .done-btn:active {
+  background: linear-gradient(
+    135deg,
+    var(--btn-pressed-1),
+    var(--btn-pressed-2)
+  );
+  color: var(--btn-text-active);
+  transform: translateY(1px) scale(0.99);
+  box-shadow:
+    0 0 0 1px var(--accent-glow-tight),
+    0 12px 25px var(--accent-glow-wide);
+}
+
+/* Disabled state for Done button */
+.file-viewer-container .done-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Choose .asm label specifics */
+.file-viewer-container .file-btn {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-inline: 1.4rem;
+}
+
+.file-viewer-container .file-btn input[type='file'] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Manual input button label */
+.file-viewer-container .manual-btn {
+  white-space: nowrap;
+}
+
+/* Snippet button label */
+.file-viewer-container .snippet-btn {
+  white-space: nowrap;
+}
+
+/* ---------------------------- */
+/* CONTROLS LAYOUT              */
+/* ---------------------------- */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  align-items: stretch;
+  min-width: 0;
+}
+
+/* Drag-and-drop zone */
+.dropzone {
+  flex: 1 1 220px;
+  border-radius: 18px;
+  border: 1.5px dashed var(--border-strong);
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  transition:
+    background 150ms ease-out,
+    border-color 150ms ease-out,
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
+}
+
+.dropzone:hover {
+  background: var(--accent-bg-subtle);
+  border-color: var(--focus-border);
+  color: var(--text);
+  box-shadow: 0 0 0 1px var(--focus-ring);
+}
+
+/* ---------------------------- */
+/* MESSAGES                     */
+/* ---------------------------- */
+
+.warn,
+.error {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.warn {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+}
+
+.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+/* ---------------------------- */
+/* EDITOR                       */
+/* ---------------------------- */
+
+.editor {
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-soft);
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.name-input {
+  margin-left: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 0.85rem;
+  min-width: 0;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 1px var(--focus-ring);
+}
+
+.editor-area {
+  min-height: 180px;
+  max-height: 320px;
+  resize: vertical;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  padding: 0.6rem 0.75rem;
+  font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.editor-area:focus {
+  outline: none;
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 1px var(--focus-ring);
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------------------------- */
+/* META + VIEWER                */
+/* ---------------------------- */
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.meta > div strong {
+  color: var(--text);
+}
+
+.viewer {
+  flex: 1;
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-soft);
+  overflow: auto;
+  padding: 0.5rem 0.75rem;
+}
+
+.viewer::-webkit-scrollbar {
+  width: 8px;
+}
+.viewer::-webkit-scrollbar-track {
+  background: transparent;
+}
+.viewer::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+}
+
+.codeblock {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text);
+  white-space: pre;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.05rem 0.25rem;
+  line-height: 1.3;
+}
+.line:last-child {
+  border-bottom: none;
+}
+
+.ln {
+  display: inline-block;
+  width: 3ch;
+  margin-right: 1ch;
+  color: var(--text-muted);
+  text-align: right;
+  user-select: none;
+}
+
+/* ---------------------------- */
+/* TEMPLATE DROPDOWN            */
+/* ---------------------------- */
+
+.editor-header {
+  flex-wrap: wrap; /* allows filename + template to stack nicely on small widths */
+}
+
+/* Make header labels behave consistently */
+.editor-header label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+/* Push template selector to the right when there’s room */
+.template-select {
+  margin-left: auto;
+}
+
+/* Match dropdown styling to .name-input */
+.template-select select {
+  padding: 0.3rem 2.1rem 0.3rem 0.6rem; /* extra right padding for the arrow */
+  border-radius: 0.6rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 0.85rem;
+  min-width: 180px;
+  cursor: pointer;
+
+  /* consistent look across browsers */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
+}
+
+/* Custom arrow (subtle, theme-friendly) */
+.template-select {
+  position: relative;
+}
+.template-select::after {
+  content: '';
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  transform: translateY(-50%) rotate(45deg);
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Focus ring to match other inputs */
+.template-select select:focus {
+  outline: none;
+  border-color: var(--focus-border);
+  box-shadow: 0 0 0 1px var(--focus-ring);
+}
+
+/* Disabled state (if you ever disable it) */
+.template-select select:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* When wrapping, keep things tidy */
+@media (max-width: 520px) {
+  .template-select {
+    margin-left: 0;
+  }
+  .template-select select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ---------------------------- */
+/* SNIPPET EDITOR               */
+/* ---------------------------- */
+
+.snippet-editor {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.snippet-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.snippet-label {
+  font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.snippet-area {
+  min-height: 100px;
+  max-height: 200px;
+}

@@ -1,0 +1,117 @@
+<!-- (same big header comment as you had is fine; omitted here for brevity) -->
+
+<div class="file-viewer-container">
+  <div class="controls">
+    <label class="file-btn">
+      <input type="file" accept=".asm,.s,.inc" (change)="onFileSelected($event)" />
+      Choose .asm file
+    </label>
+
+    <div class="dropzone" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+      Drag & drop .asm here
+    </div>
+
+    <button class="manual-btn" (click)="startManualInput()">Input Manually</button>
+    <button class="snippet-btn" (click)="startSnippetInput()">Input Snippet</button>
+  </div>
+
+  @if (warn) { <div class="warn">{{ warn }}</div> }
+  @if (error) { <div class="error">{{ error }}</div> }
+
+  <!-- Manual editor -->
+  @if (manualMode && !manualLocked) {
+    <div class="editor">
+      <div class="editor-header">
+        <label>
+          Manual file name:
+          <input class="name-input" [(ngModel)]="manualFileName" placeholder="manual-input.asm" />
+        </label>
+
+        <label class="template-select">
+          Template:
+          <select
+            [disabled]="!templates.length"
+            [(ngModel)]="selectedTemplateId"
+            (ngModelChange)="onTemplateChange($event)"
+          >
+            @if (!templates.length) {
+              <option value="" selected>No templates avaliable</option>
+            } @else {
+              @for (t of templates; track t.id) {
+                <option [value]="t.id">{{ t.label }}</option>
+              }
+            }
+          </select>
+        </label>
+      </div>
+
+      <textarea
+        class="editor-area"
+        [(ngModel)]="manualText"
+        placeholder="Type your MASM here…"
+      ></textarea>
+
+      <div class="editor-actions">
+        <button class="done-btn" [disabled]="!manualText.trim().length" (click)="finishManualInput()">
+          Done
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Snippet editor -->
+  @if (snippetMode && !snippetLocked) {
+    <div class="editor snippet-editor">
+      <div class="editor-header">
+        <label>
+          File name:
+          <input class="name-input" [(ngModel)]="snippetFileName" placeholder="snippet.asm" />
+        </label>
+      </div>
+
+      <div class="snippet-section">
+        <span class="snippet-label">.data</span>
+        <textarea
+          class="editor-area snippet-area"
+          [(ngModel)]="snippetDataText"
+          placeholder="Enter .data section content…"
+        ></textarea>
+      </div>
+
+      <div class="snippet-section">
+        <span class="snippet-label">.text</span>
+        <textarea
+          class="editor-area snippet-area"
+          [(ngModel)]="snippetTextText"
+          placeholder="Enter .text section content…"
+        ></textarea>
+      </div>
+
+      <div class="editor-actions">
+        <button class="done-btn" [disabled]="!canFinishSnippet" (click)="finishSnippetInput()">
+          Done
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Viewer -->
+  @if (content && (!manualMode || manualLocked) && (!snippetMode || snippetLocked)) {
+    <div class="meta">
+      <div><strong>File:</strong> {{ fileName }}</div>
+      <div><strong>Size:</strong> {{ fileSize | number }} bytes</div>
+      <div><strong>Lines:</strong> {{ lines.length | number }}</div>
+    </div>
+
+    <div class="viewer">
+      <pre class="codeblock"><code>
+        @for (line of lines; track $index; let i = $index) {
+          <span class="line">
+            <span class="ln">{{ i + 1 }}</span>
+            <span [textContent]="line"></span>
+          </span>
+        }
+      </code></pre>
+    </div>
+  }
+</div>

@@ -1,0 +1,265 @@
+:root {
+  color-scheme: light dark;
+}
+
+/* ------------------------------------------------------------------ */
+/* PAGE + THEME                                                       */
+/* ------------------------------------------------------------------ */
+
+.page {
+  /* Accent colors */
+  --purple: #aa0022;       /* royal purple */
+  --purple-strong: #550011;
+
+  /* Button colors (LIGHT MODE defaults) */
+  --btn-pastel: #ff5577;   /* base button color */
+  --btn-hover: #ff0033;    /* hover royal purple */
+  --btn-pressed-1: #aa0022;
+  --btn-pressed-2: #550011;
+
+  /* Focus / glow – derived from accent */
+  --focus-border: rgba(170, 0, 34, 0.7);
+  --focus-ring: rgba(170, 0, 34, 0.35);
+  --accent-glow-tight: rgba(170, 0, 34, 0.55);
+  --accent-glow-wide: rgba(170, 0, 34, 0.65);
+  --accent-bg-subtle: rgba(170, 0, 34, 0.08);
+
+  /* Utility */
+  --btn-text-active: #ffffff;
+  --shadow-hover: 0 10px 25px rgba(15, 23, 42, 0.18);
+  --scrollbar-thumb: rgba(148, 163, 184, 0.6);
+
+  /* Status */
+  --warn-bg: rgba(251, 191, 36, 0.1);
+  --warn-text: #92400e;
+  --error-bg: rgba(239, 68, 68, 0.12);
+  --error-text: #991b1b;
+
+  /* LIGHT MODE – true white */
+  --bg: #ffffff;           /* page background */
+  --bg-elevated: #f3f2f2;  /* cards */
+  --bg-soft: #f7f7f7;      /* soft surfaces */
+  --text: #111111;
+  --text-muted: #6b6b6b;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.14);
+  --radius-lg: 18px;       /* card squircles */
+  --radius-pill: 999px;    /* button squircles */
+  --transition-fast: 150ms ease-out;
+
+  padding: 1rem;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* DARK MODE – deeper grey + higher contrast + darker button tones */
+.page.dark {
+  --bg: #0d0d0f;
+  --bg-elevated: #1a1a1e;
+  --bg-soft: #16161a;
+
+  --text: #f2f2f7;
+  --text-muted: #b0b0b8;
+
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.25);
+
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
+
+  /* Dark-mode button overrides */
+  --btn-pastel: #aa0022;     /* darker pastel purple for base */
+  --btn-hover: #ff0033;      /* deeper hover purple */
+  --btn-pressed-1: #ff0033;  /* darker gradient top */
+  --btn-pressed-2: #ff5577;  /* darker gradient bottom */
+
+  /* Dark-mode utility overrides */
+  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --scrollbar-thumb: rgba(148, 163, 184, 0.4);
+  --warn-bg: rgba(251, 191, 36, 0.08);
+  --warn-text: #fbbf24;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --error-text: #fca5a5;
+}
+
+/* ------------------------------------------------------------------ */
+/* LAYOUT                                                             */
+/* ------------------------------------------------------------------ */
+
+.layout {
+  display: grid;
+  grid-template-columns: 59% 40%;
+  grid-template-rows: 55vh auto;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 45vh auto auto;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* HEADER + THEME SWITCH                                              */
+/* ------------------------------------------------------------------ */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 0.03em;
+}
+
+.brand-text h2 {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.theme-label {
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.theme-switch {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-track {
+  width: 52px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.02);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.theme-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.25);
+  transform: translateX(0);
+  transition: transform var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.theme-thumb.theme-thumb-on {
+  transform: translateX(24px);
+  background: linear-gradient(135deg, var(--purple), var(--purple-strong));
+  box-shadow: 0 4px 18px var(--accent-glow-wide);
+}
+
+/* ------------------------------------------------------------------ */
+/* SHARED CARD UTILITY                                                */
+/* ------------------------------------------------------------------ */
+
+.page .card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ------------------------------------------------------------------ */
+/* GLOBAL BUTTON LOOK (fallback; components add their own too)        */
+/* ------------------------------------------------------------------ */
+
+.page button {
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  background: var(--btn-pastel);
+  border: 1px solid var(--btn-pastel);
+  color: var(--text);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast),
+    transform 100ms ease;
+}
+
+.page button:hover {
+  background: var(--btn-hover);
+  border-color: var(--btn-hover);
+  color: var(--btn-text-active);
+  box-shadow: var(--shadow-hover);
+}
+
+.page button:active {
+  background: linear-gradient(
+    135deg,
+    var(--btn-pressed-1),
+    var(--btn-pressed-2)
+  );
+  color: var(--btn-text-active);
+  transform: translateY(1px) scale(0.99);
+  box-shadow:
+    0 0 0 1px var(--accent-glow-tight),
+    0 12px 25px var(--accent-glow-wide);
+}
+
+.page button[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Makes the 3rd widget span both columns if .layout is a grid */
+.full-row {
+  grid-column: 1 / -1;
+  display: block;
+}
